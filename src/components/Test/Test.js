@@ -1,29 +1,33 @@
 import React,{Component} from 'react'
-//import Anime from './Anime'
+import RadioButtons from './RadioButtons'
 
-const animeList = ['AOT', 'DBZ', 'Naruto']
+const animeNames = ['Attack on Titan', 'Code Geass', 'Naruto']
+const animeImages = ['/Images/1.jpg','/Images/2.jpg','/Images/3.png']
 
 class Test extends Component {
 constructor() {
   super()
   this.state= {
   	index: 0
+  	score: 0
   }
 }
 buttonClicked() {
-	console.log('button was clicked')
 	this.setState((prevState) => {
 		return{ index: prevState.index + 1 }
 	})
+
 }
 
 	render() {
 		return(
 			<div>
-				<p> {animeList[this.state.index]} </p>
+				<p> {animeNames[this.state.index]} </p>
+				<img src={animeImages[this.state.index]}  />
+				<RadioButtons />
 				<button onClick= {() => this.buttonClicked()}>
 					Next
-				</button>	
+				</button>
 			</div>
 			)
 	}
