@@ -7,24 +7,25 @@ const animeImages = ['/Images/1.jpg','/Images/2.jpg','/Images/3.png']
 class Test extends Component {
 constructor() {
   super()
+  this.radioButtonsElement = React.createRef()
   this.state= {
-  	index: 0
-  	score: 0
+  	index: 0,
+  	//choice: ''
+  	//score: 0
   }
 }
 buttonClicked() {
 	this.setState((prevState) => {
 		return{ index: prevState.index + 1 }
 	})
-
+	this.radioButtonsElement.current.resetButton()
 }
-
 	render() {
 		return(
 			<div>
 				<p> {animeNames[this.state.index]} </p>
 				<img src={animeImages[this.state.index]}  />
-				<RadioButtons />
+				<RadioButtons ref={this.radioButtonsElement} />
 				<button onClick= {() => this.buttonClicked()}>
 					Next
 				</button>
