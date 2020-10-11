@@ -10,7 +10,9 @@ constructor(){
 onChange = e =>{
 	this.setState({choice: e.target.value})
 }
-
+resetButton = () =>{
+	this.setState({choice: ''})
+}
 	render(){
 		return(
 				<form>
@@ -20,14 +22,6 @@ onChange = e =>{
 						type='radio'
 						value='epic'
 						checked={this.state.choice === 'epic'}
-						onChange={this.onChange} />
-					</label>
-					<label>
-						Okay
-						<input 
-						type='radio'
-						value='okay'
-						checked={this.state.choice === 'okay'}
 						onChange={this.onChange} />
 					</label>
 					<label>
